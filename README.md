@@ -1,9 +1,13 @@
-# clc
-### _Your Name <your.name@example.com>_
+# CLCU - Common Lisp Common Utilities
 
-This is a project to do ... something.
+## Install
 
-## License
+```bash
+git clone https://github.com/jaypmorgan/clcu.git
+cd clcu
+```
 
-Specify license here
-
+```lisp
+(push (merge-pathnames #p".") asdf:*central-registry*)
+(ql:quickload :clcu)
+```
