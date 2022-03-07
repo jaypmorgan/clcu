@@ -13,7 +13,17 @@
   (lambda (in) (apply #'-> in funs)))
 
 (defun string-split (str &optional (delim " "))
-  "Split a string into a sequence, splitting on a delimiter."
+  "Split a string into a sequence, splitting on a delimiter.
+
+> (string-split \"this is a string\")
+(\"this\" \"is\" \"a\" \"string\")
+
+The second argument is the delimiter character (string) to split the
+string by. By default this function splits by spaces.
+
+> (string-split \"this,is,another,string\" \",\")
+(\"this\" \"is\" \"another\" \"string\")
+"
   (labels ((f (s r)
 	     (let ((pos (search delim s)))
 	       (cond ((not (eq nil pos)) (f (subseq s (1+ pos)) (cons (subseq s 0 pos) r)))

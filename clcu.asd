@@ -6,5 +6,11 @@
   :license  "Specify license here"
   :version "0.0.1"
   :serial t
-  :components ((:file "package")
+  :pathname "src/"
+  :components ((:file "../package")
                (:file "clcu")))
+
+(asdf:defsystem #:clcu/tests
+  :depends-on ("clcu" "fiveam")
+  :pathname "tests"
+  :components ((:file "test")))
