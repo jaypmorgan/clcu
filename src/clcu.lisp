@@ -30,3 +30,14 @@ string by. By default this function splits by spaces.
 		     ((string= s "") (nreverse r))
 		     (t (nreverse (cons s r)))))))
     (f str nil)))
+
+(defun string-contains-p (str substr)
+  "Does STR contain SUBSTR"
+  (search substr str))
+
+(defun string-startswith-p (str start)
+  (string= (subseq str 0 (length start)) start))
+
+(defun string-endswith-p (str endswith)
+  (string= (subseq str (- (length str) (length endswith)))
+	   endswith))
