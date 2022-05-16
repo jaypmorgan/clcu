@@ -36,8 +36,10 @@ string by. By default this function splits by spaces.
   (search substr str))
 
 (defun string-startswith-p (str start)
+  (when (= 0 (length str)) nil)
   (string= (subseq str 0 (length start)) start))
 
 (defun string-endswith-p (str endswith)
+  (when (= 0 (length str)) nil)
   (string= (subseq str (- (length str) (length endswith)))
 	   endswith))
