@@ -35,11 +35,11 @@ string by. By default this function splits by spaces.
   "Does STR contain SUBSTR"
   (search substr str))
 
-(defun string-startswith-p (str start)
-  (when (= 0 (length str)) nil)
-  (string= (subseq str 0 (length start)) start))
+(defun string-startswith-p (str startswith)
+  (str:starts-with-p startswith str))
 
 (defun string-endswith-p (str endswith)
-  (when (= 0 (length str)) nil)
-  (string= (subseq str (- (length str) (length endswith)))
-	   endswith))
+  (str:ends-with-p endswith str))
+
+(defun string-join (lst &optional (delim " "))
+  (str:join delim lst))
