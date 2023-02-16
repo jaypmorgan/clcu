@@ -43,3 +43,14 @@ string by. By default this function splits by spaces.
 
 (defun string-join (lst &optional (delim " "))
   (str:join delim lst))
+
+(defun string-replace (str init rep)
+  (labels ((f (x)
+	   (cond ((null x) nil)
+		 ((and (char= (car x) init) (null rep)) (f (cdr x)))
+		 ((char= (car x) init) (cons rep (f (cdr x))))
+		 (t (cons (car x) (f (cdr x)))))))
+    (coerce (f (coerce str 'list)) 'string)))
+
+(defun string-remove (str rem)
+  (string-replace str rem nil))
