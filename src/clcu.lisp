@@ -54,3 +54,9 @@ string by. By default this function splits by spaces.
 
 (defun string-remove (str rem)
   (string-replace str rem nil))
+
+(defun flatten-list (lst)
+  "Flatten a list so that all atoms are top-level."
+  (cond ((null lst) nil)
+	((atom (first lst)) (cons (first lst) (flatten-list (rest lst))))
+	(t (append (flatten-list (first lst)) (flatten-list (rest lst))))))
